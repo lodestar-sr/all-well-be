@@ -1,8 +1,8 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "all-well-be",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "ALL Well API repository with Nest.js",
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
