@@ -47,10 +47,7 @@ export class AuthController {
   @ApiResponse({ status: 400, type: FailedResponseDto })
   @ApiResponse({ status: 403, type: EmailNotVerifiedDto })
   @Post('login')
-  async login(
-    @Body() data: LoginRequestDto,
-    @Request() req: IAuthGuardRequest,
-  ) {
+  async login(@Request() req: IAuthGuardRequest) {
     return this.authService.login(req.user);
   }
 

@@ -8,7 +8,7 @@ export enum TokenType {
   RESET_PASSWORD = 'reset_password',
 }
 
-export const RESET_PASSWORD_URL = WEB_APP_HOST + `/auth/reset-password`;
+export const RESET_PASSWORD_URL = WEB_APP_HOST + `/change-password`;
 
 export const DEFAULT_PAGE_LIMIT = 10;
 export const MAX_PAGE_LIMIT = 1000;

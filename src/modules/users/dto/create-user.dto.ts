@@ -12,12 +12,4 @@ export class CreateUserDto extends EmailDto {
   @ApiProperty()
   @IsOptional()
   password: string;
-
-  @ApiProperty()
-  @IsNotEmpty()
-  firstname: string;
-
-  @ApiProperty()
-  @IsNotEmpty()
-  lastname: string;
 }

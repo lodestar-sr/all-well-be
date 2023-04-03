@@ -222,7 +222,7 @@ export class MessagingService {
                             style='font-family: Inter,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 20px 0 20px;'
                             valign='top'>
                           <a href="${data['link'].link}" class='btn-primary'
-                             style='font-family: Inter,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 13px; color: #000000; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 50px; text-transform: capitalize; background-color: #4EE0BC; margin: 0 20px; width: 100% border-color: #4EE0BC; border-style: solid; border-width: 10px 20px;'>${data['link'].label}</a>
+                             style='font-family: Inter,Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 13px; color: #000000; text-decoration: none; line-height: 2em; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 50px; text-transform: capitalize; background-color: #4EE0BC; margin: 0 20px; width: 100%; border-color: #4EE0BC; border-style: solid; border-width: 10px 20px;'>${data['link'].label}</a>
                         </td>
                       </tr>
                       ` : ''}

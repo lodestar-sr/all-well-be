@@ -1,4 +1,4 @@
-import * as process from "process";
+require('dotenv').config();
 
 export const SUCCESS = 'SUCCESS';
 export const ERROR = 'ERROR';

@@ -1,8 +1,6 @@
 export interface IValidatedUser {
   id: number;
   email: string;
-  firstname: string;
-  lastname: string;
   createdAt: Date;
 }
 

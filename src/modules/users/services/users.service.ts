@@ -8,7 +8,7 @@ import { MessagingService } from "./messaging.service";
 import { CreateUserDto } from "../dto/create-user.dto";
 import { UpdateUserDto } from "../dto/update-user.dto";
 import { User } from "../entities/user.entity";
-import { EMAIL_VERIFY_URL, RESET_PASSWORD_URL } from "../users.constants";
+import { RESET_PASSWORD_URL } from "../users.constants";
 import { IPayload } from "../../auth/auth.types";
 import { Token } from "../../tokens/entities/token.entity";
 import { TokensService } from "../../tokens/tokens.service";
@@ -77,14 +77,14 @@ export class UsersService {
     });
 
     const mailService = new MessagingService();
-    const url = `${RESET_PASSWORD_URL}/${savedToken.token}`;
+    const url = `${RESET_PASSWORD_URL}?token=${savedToken.token}`;
 
     await mailService.sendMail({
       to: existingUser.email,
       subject: 'Change Password',
       body: `
         <p>
-          Hello, ${existingUser.lastname}
+          Hello, ${existingUser.email}
           <br/><br/>
           Your request to change password is accepted.<br/>
           Please click <a href="${url}">here</a> to change password.

@@ -16,6 +16,7 @@ import {
   INVALID_TOKEN,
   USER_NOT_EXIST,
 } from '../../../shared/constants/message.constants';
+import { LoginRequestDto } from '../dto/auth.dto';
 
 @Injectable()
 export class AuthService {
@@ -39,13 +40,12 @@ export class AuthService {
   }
 
   async login(user: IVerifiedUser) {
-    console.log('user =>>>>>>>>>>', user);
-    return { access_token: this.jwtService.sign(user), isValid: true };
+    return {
+      access_token: this.jwtService.sign({ sub: user.id, email: user.email }),
+    };
   }
 
   async register(user: User) {
-    const salt = await genSalt(parseInt(process.env.SALT_ROUNDS));
-    user.password = await hash(user.password, salt);
     const res = await this.usersService.create(user);
 
     const payload = { email: res.email, sub: res.id };
@@ -71,7 +71,7 @@ export class AuthService {
       type: TokenType.RESET_PASSWORD,
     });
 
-    const url = `${RESET_PASSWORD_URL}/${savedToken.token}`;
+    const url = `${RESET_PASSWORD_URL}?token=${savedToken.token}`;
 
     const mailService = new MessagingService();
 
@@ -80,7 +80,7 @@ export class AuthService {
       subject: 'Forgot Password',
       body: `
         <p>
-          Hello, ${user.lastname}
+          Hello, ${user.email}
           <br/>
           Please change your password by clicking <a href="${url}">here</a>.
         </p>`,
